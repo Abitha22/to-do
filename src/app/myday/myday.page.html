@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>myday</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <div>
+        <h2> My Day</h2>
+        <p> {{today | date}}</p>
+    </div>
+  </ion-item>
+  <!-- <ion-list>
+    <ion-item (click)="viewDetails(task.title)" *ngFor ="let task of tasks">
+      {{task.title}}
+      <ion-icon slot="end" name="star-outline" (click)="addImportant(task.title)"></ion-icon>     
+    </ion-item>
+  </ion-list>  -->
+  <ion-list>
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of tasks">
+        <!-- <ion-item [routerDirection]="'root'" [routerLink]="[p.url]"> -->
+          <ion-item expand="block" routerLink="/myday/details" routerDirection="forward" >
+          <ion-icon slot="end" name="star-outline" (click)="addImportant(p)"></ion-icon>
+          <ion-label>
+            {{p}}
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+   <app-newtask (outEnterTask)="addTask($event)"></app-newtask>
+</ion-content>

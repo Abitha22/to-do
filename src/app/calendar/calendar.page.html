@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>calendar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-calendar [(ngModel)]="myDate" 
+  [format]="'DD-MM-YYYY'"></ion-calendar>
+  
+  <ion-button (click)="date(myDate)" routerLink="/myday/details">OK</ion-button>
+</ion-content>

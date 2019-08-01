@@ -1,0 +1,69 @@
+<ion-content>
+  <ion-list>
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <ion-checkbox slot="start"></ion-checkbox>
+
+          <ion-input value={{task}}></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+      <ion-item (click)="addToImportant(task)">
+        <ion-icon name="sunny" slot="start"></ion-icon>
+        <ion-label>
+          Add to Important
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon name="alarm" slot="start"></ion-icon>
+        <ion-label>
+          Remind me
+        </ion-label>
+      </ion-item>
+
+      <ion-item (click)="addToPlanned(taskdata)" routerLink="/calendar">
+        <ion-icon name="calendar" slot="start"></ion-icon>
+        <ion-label>
+          Add due date
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="browsers" slot="start"></ion-icon>
+        <ion-label>
+          Repeat
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-item>
+        <ion-icon name="attach" slot="start"></ion-icon>
+        <ion-label>
+          Add a file
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <ion-item>
+      <ion-textarea placeholder="Add a note"></ion-textarea>
+    </ion-item>
+
+  </ion-list>
+
+<ion-list>
+  <ion-item>
+      <ion-icon name="arrow-back"  expand="block" routerLink="/myday" routerDirection="backward"></ion-icon>
+
+      <ion-icon name="trash" slot="end" data-placement="left" data-toggle="tooltip" title="delete task"></ion-icon>
+  </ion-item>
+
+</ion-list>
+
+</ion-content>
+
