@@ -11,7 +11,6 @@ export class PlannedPage implements OnInit {
 plannedtask: Array<{plannedTaskData: string,  dueDate: any}> = [];
   ngOnInit() {
   this.plannedtask = this.dataservice.getPlannedData();
-  console.log(this.plannedtask);
   }
 
 }

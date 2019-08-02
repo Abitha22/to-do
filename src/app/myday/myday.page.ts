@@ -16,8 +16,10 @@ export class MydayPage implements OnInit {
 
 
   addTask(task: string) {
-    this.tasks.push(task);
-    this.dataservice.setTaskData(this.tasks);
+    if (task.length > 0) {
+      this.tasks.push(task);
+      this.dataservice.setTaskData(this.tasks);
+    }
   }
 
   deleteTask(index) {

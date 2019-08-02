@@ -35,11 +35,13 @@ export class AppComponent implements OnInit {
   ];
 
   addList(title: string) {
-    this.appPages.push({
-      title,
-      url : title,
-      icon : 'reorder'
-    });
+    if (title.length > 0) {
+      this.appPages.push({
+        title,
+        url : title,
+        icon : 'reorder'
+      });
+    }
   }
 
 

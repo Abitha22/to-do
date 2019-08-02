@@ -17,7 +17,6 @@ taskvalue: any;
 
   enterTask(taskList: any): Observable<any> {
     this.outEnterTask.emit(taskList.value);
-    console.log(taskList.value);
     taskList.value = '';
     return taskList.value;
   }

@@ -13,7 +13,6 @@ export class NewlistComponent implements OnInit {
 
   enterList(taskList: HTMLInputElement) {
     this.outEnterList.emit(taskList.value);
-    console.log(taskList.value);
     taskList.value = '';
   }
 
