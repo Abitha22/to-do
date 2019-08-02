@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../data.service';
+import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,22 +8,15 @@ import { DataService } from '../../data.service';
   styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit {
-
-  constructor(private dataservice: DataService) {
+sub;
+id;
+  constructor(private dataservice: DataService, private router: ActivatedRoute) {
 
    }
 
-  taskdata: any = [];
+
+  getTaskValue;
   plannedTaskData ;
-  task: any;
-  add() {
-console.log('input clicked');
-  }
-
-  add1() {
-  console.log('icon clicked');
-  }
-
   addToImportant(taskdata) {
     console.log('added to important' + taskdata);
     this.dataservice.setImportantTask(taskdata);
@@ -32,9 +26,10 @@ console.log('input clicked');
     console.log('added to planned task' + taskdata);
     this.dataservice.setPlannedTaskData(taskdata);
   }
+
   ngOnInit() {
-    this.taskdata = this.dataservice.getTaskData();
-    this.task = this.dataservice.getIndividualTaskData();
+    this.getTaskValue = this.router.snapshot.paramMap.get('mytask');
+    console.log('value is' + this.getTaskValue);
   }
 
 }

@@ -5,13 +5,13 @@
         <ion-item>
           <ion-checkbox slot="start"></ion-checkbox>
 
-          <ion-input value={{task}}></ion-input>
+          <ion-input value={{getTaskValue}}></ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
     
     <ion-card>
-      <ion-item (click)="addToImportant(task)">
+      <ion-item (click)="addToImportant(getTaskValue)">
         <ion-icon name="sunny" slot="start"></ion-icon>
         <ion-label>
           Add to Important
@@ -27,7 +27,7 @@
         </ion-label>
       </ion-item>
 
-      <ion-item (click)="addToPlanned(taskdata)" routerLink="/calendar">
+      <ion-item (click)="addToPlanned(getTaskValue)" routerLink="/calendar/{{getTaskValue}}">
         <ion-icon name="calendar" slot="start"></ion-icon>
         <ion-label>
           Add due date
@@ -60,7 +60,7 @@
   <ion-item>
       <ion-icon name="arrow-back"  expand="block" routerLink="/myday" routerDirection="backward"></ion-icon>
 
-      <ion-icon name="trash" slot="end" data-placement="left" data-toggle="tooltip" title="delete task"></ion-icon>
+      <ion-icon name="trash" slot="end" data-placement="left" data-toggle="tooltip" title="delete task" ></ion-icon>
   </ion-item>
 
 </ion-list>

@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class TasksPage implements OnInit {
 
-  taskdata: any;
+  taskdata;
 
   constructor(private dataservice: DataService) { }
 

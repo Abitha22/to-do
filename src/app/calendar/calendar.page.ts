@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-calendar',
@@ -9,17 +10,16 @@ import { DataService } from '../data.service';
 export class CalendarPage implements OnInit {
 myDate;
 format;
-sdate;
-  constructor(private dataservice: DataService) {
+getTaskValue;
+  constructor(private dataservice: DataService, private router: ActivatedRoute) {
 
    }
   date(date) {
-   this.sdate = date;
-   console.log('date is' + date);
    this.dataservice.setDueDate(this.myDate);
   }
+
   ngOnInit() {
-   // this.dataservice.setDueDate(this.sdate);
+    this.getTaskValue = this.router.snapshot.paramMap.get('duetask');
   }
 
 }

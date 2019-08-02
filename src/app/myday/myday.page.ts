@@ -1,5 +1,6 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { DataService } from '../data.service';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-myday',
@@ -9,28 +10,25 @@ import { DataService } from '../data.service';
 export class MydayPage implements OnInit {
 
   today = Date.now();
-   b = false;
 
   public tasks: Array<string> = [];
-  constructor(public dataservice: DataService) {   }
+  constructor(public dataservice: DataService, public router: Router) {   }
 
 
   addTask(task: string) {
-    // this.tasks.push({
-    //   title: task
-    //   //  url: '/myday/details'
-    // });
     this.dataservice.individualTaskData(task);
     this.tasks.push(task);
+    console.log('tasks are' + this.tasks);
     this.dataservice.setTaskData(this.tasks);
     console.log('myday page data' + this.tasks);
   }
-  viewDetails(task: string) {
-  console.log('clicked' + task);
-  // this.b = !this.b;
+
+  deleteTask(index) {
+    this.tasks.splice(index, 1);
   }
-  addImportant(task: string) {
-    console.log('Important task' + task);
+
+  details(task) {
+    this.router.navigate(['myday/details',  task]);
   }
   ngOnInit() {
 

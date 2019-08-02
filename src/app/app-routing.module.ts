@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: 'important', loadChildren: './important/important.module#ImportantPageModule' },
   { path: 'planned', loadChildren: './planned/planned.module#PlannedPageModule' },
   { path: 'tasks', loadChildren: './tasks/tasks.module#TasksPageModule' },
-  { path: 'myday/details', loadChildren: './myday/details/details.module#DetailsPageModule' },
-  { path: 'calendar', loadChildren: './calendar/calendar.module#CalendarPageModule' }
+  { path: 'myday/details/:mytask', loadChildren: './myday/details/details.module#DetailsPageModule' },
+  { path: 'calendar/:duetask', loadChildren: './calendar/calendar.module#CalendarPageModule' }
 ];
 
 @NgModule({

@@ -11,19 +11,13 @@
         <p> {{today | date}}</p>
     </div>
   </ion-item>
-  <!-- <ion-list>
-    <ion-item (click)="viewDetails(task.title)" *ngFor ="let task of tasks">
-      {{task.title}}
-      <ion-icon slot="end" name="star-outline" (click)="addImportant(task.title)"></ion-icon>     
-    </ion-item>
-  </ion-list>  -->
   <ion-list>
-      <ion-menu-toggle auto-hide="false" *ngFor="let p of tasks">
-        <!-- <ion-item [routerDirection]="'root'" [routerLink]="[p.url]"> -->
-          <ion-item expand="block" routerLink="/myday/details" routerDirection="forward" >
-          <ion-icon slot="end" name="star-outline" (click)="addImportant(p)"></ion-icon>
+      <ion-menu-toggle auto-hide="false" *ngFor="let task of tasks;let i=index">
+          <ion-item>
+            <ion-icon slot="end" name="create" (click)="details(task)"></ion-icon>
+          <ion-icon slot="end" name="trash" (click)="deleteTask(i)"></ion-icon>
           <ion-label>
-            {{p}}
+            {{task}}
           </ion-label>
         </ion-item>
       </ion-menu-toggle>
