@@ -16,11 +16,8 @@ export class MydayPage implements OnInit {
 
 
   addTask(task: string) {
-    this.dataservice.individualTaskData(task);
     this.tasks.push(task);
-    console.log('tasks are' + this.tasks);
     this.dataservice.setTaskData(this.tasks);
-    console.log('myday page data' + this.tasks);
   }
 
   deleteTask(index) {

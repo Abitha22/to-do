@@ -16,6 +16,7 @@ getTaskValue;
    }
   date(date) {
    this.dataservice.setDueDate(this.myDate);
+   this.dataservice.setPlanned(this.getTaskValue, this.myDate);
   }
 
   ngOnInit() {

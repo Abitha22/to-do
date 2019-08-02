@@ -13,6 +13,7 @@ plannedtask;
 date;
 task;
 mydaytask;
+duetask: Array<{plannedTaskData: string,  dueDate: any}> = [];
 
   // task data
 
@@ -37,7 +38,7 @@ mydaytask;
   // set date
 
   setDueDate(date) {
-    this.date = date;
+   this.date = date;
   }
 
   getDueDate() {
@@ -55,27 +56,14 @@ mydaytask;
   }
 
 
-  // individual task data
-  individualTaskData(task) {
-    this.task = task;
+ // planned data
+
+  setPlanned(plannedTaskData , dueDate) {
+  this.duetask.push({plannedTaskData, dueDate});
   }
 
-  getIndividualTaskData() {
-    return this.task;
-  }
-  // getPlannedData() {
-  //   return [{
-  //     plannedTaskData : this.plannedtask ,
-  //     dueDate : this.date
-  //   }];
-  // }
-
-  // Myday tasks
-  setMyDayTaskData(task) {
-    this.mydaytask.push(task);
+  getPlannedData() {
+  return this.duetask;
   }
 
-  getMyDayTaskData() {
-    return this.mydaytask;
-  }
 }
